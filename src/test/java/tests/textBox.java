@@ -13,18 +13,23 @@ public class textBox {
     @BeforeAll
     static void beforAll() {
         Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "1920x1200";
+        Configuration.holdBrowserOpen = true;
+        Configuration.baseUrl = "https://demoqa.com";
     }
 
     @Test
     void fillFormTest() {
-        open("https://demoqa.com/text-box");
+        open("/text-box");
         $("#userName").setValue("Alex");
         $("#userEmail").setValue("alex@alex.com");
         $("#currentAddress").setValue("Some street 1");
         $("#permanentAddress").setValue("Shosse Intuziastov 28");
         $("#submit").click();
 
-//        $("[id=r1-1]").shouldHave(text("yandex.com"));
+        $("#output #name").shouldHave(text("Alex"));
+        $("#output").$("#email").shouldHave(text("alex@alex.com"));
+        $("#output").$("#currentAddress").shouldHave(text("Some street 1"));
+        $("#output").$("#permanentAddress").shouldHave(text("Shosse Intuziastov 28"));
     }
 }
