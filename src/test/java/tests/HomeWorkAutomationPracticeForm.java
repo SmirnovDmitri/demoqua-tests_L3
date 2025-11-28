@@ -47,10 +47,7 @@ public class HomeWorkAutomationPracticeForm {
         actions().sendKeys("utt", Keys.ENTER).perform();
         $("#city").click();
         actions().sendKeys("m", Keys.ENTER).perform();
-
-
-
-
+        $("button#submit").click();
     }
 
 }
